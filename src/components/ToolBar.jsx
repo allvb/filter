@@ -1,16 +1,16 @@
 import React from 'react';
 
-export default function Toolbar({filters, active, onSelectFilter}) {
+export default function Toolbar({filters, selected, onSelectFilter}) {
     return (
         <nav className='menu'>
             {filters.map(item => {
                 return (
                     <ul
-                        className={item === active ? "active" : ""}
+                        className={item === selected ? "active" : ""}
                         key={item}
-                        onClick={onSelectFilter(item)}
-                    >
-                    {item}
+                        onClick={() => onSelectFilter(item)} >
+
+                        {item}
                     </ul>
                 );
             })}

@@ -9,30 +9,36 @@ export const Portfolio = () => {
     
     const [active, setActive] = useState("All");
 
+    let  arryaOfImages = [];
+
+    if (active === 'All') {
+        arryaOfImages = images.filter(item => item);
+    } else {
+        arryaOfImages = images.filter(item => item.category === active);
+    }
+
     const filters = ["All", "Websites", "Flayers", "Business Cards"];
 
-    let arryaOfImages = images.filter(item => item.category === active);
+    // let arryaOfImages = images.filter(item => item.category === active);
 
     const onSelectFilter = function handleOnSelected(e) {
-        setActive((prev) => (prev = e));
-        arryaOfImages = images.filter(item => item.category === e);
-        console.log(e);
+        setActive(active => active = e);
+        // arryaOfImages = images.filter(item => item.category === e);
+        if (active === 'All') {
+            arryaOfImages = images.filter(item => item);
+        } else {
+            arryaOfImages = images.filter(item => item.category === e);
+        }
     }
 
     return (
-        <>
-        <Toolbar
-            filters={filters}
-            selected={active}
-            onSelectFilter={onSelectFilter}
-            // onSelectFilter={(e) => {
-            //     setActive((prev) => (prev = e));
-            //     arryaOfImages = images.filter(item => item.category === e);
-            //     <ProjectList images={arryaOfImages} />
-            // }}
-        />
-
-        <ProjectList images={arryaOfImages} />
-</>
+        <div className='main'>
+            <Toolbar
+                filters={filters}
+                selected={active}
+                onSelectFilter={onSelectFilter}
+            />
+             <ProjectList images={arryaOfImages} />
+        </div>
     );
 }

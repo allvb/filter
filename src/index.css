@@ -6,14 +6,20 @@
 
 body {
   padding: 30px 100px;
-  justify-content: center;
-  display: flex;
+  /* justify-content: center; */
+  /* display:flexbox; */
+}
+
+.main {
+  width: 90%;
+  margin: auto;
 }
 
 .menu {
   display: flex;
   flex-direction: row;
   margin: auto;
+  margin-bottom: 30px;
 }
 
 ul {
@@ -34,7 +40,16 @@ ul.active {
 }
 
 .container-image {
-  display: flex;
+  width: 100%;
+  /* display: flex; */
+  /* column-count: 3; */
+  flex-wrap: wrap;
+  /* justify-content: left; */
+  align-items: center;
+  margin-top: 70px;
+  margin: auto;
+  flex-direction: column;
+  /* display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: center;
@@ -44,13 +59,14 @@ ul.active {
   margin-right: auto;
   margin-top: 30px;
   width: 70%;
-  height: 100vh;
+  height: 100vh; */
 }
 
 .card {
-  display: inline-block;
+  /* display: inline-block; */
   /* width: 100%; */
-  height: 100%; 
+  width: 27%;
+  /* height: 35vh;  */
   object-fit: contain;
   margin: 5px;
 }
